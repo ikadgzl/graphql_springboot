@@ -1,0 +1,30 @@
+type Query {
+    getPlayerById(id: ID!): Player
+    getAllPlayers: [Player!]
+}
+
+type Mutation {
+    deletePlayer(id: ID!): Boolean!
+    addPlayer(input: CreatePlayerInput!): Player!
+}
+
+type Player {
+    id: ID!
+    name: String!
+    surname: String!
+    position: Position!
+}
+
+enum Position {
+    POINT_GUARD,
+    SHOOTING_GUARD,
+    SMALL_FORWARD,
+    POWER_FORWARD,
+    CENTER
+}
+
+input CreatePlayerInput {
+    name: String!
+    surname: String!
+    position: Position!
+}
